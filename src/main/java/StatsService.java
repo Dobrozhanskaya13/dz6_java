@@ -36,37 +36,31 @@ public class StatsService {
 
     public long avgSales(long[] sales) {//Метод ниже считает среднюю сумму  продаж
         long sum = 0;
-        for (long num : sales) {
-            // суммирование каждого элемента массива
-            sum = sum + num;
-        }
+        sum = sumSales(sales);
         return sum / sales.length;
     }
 
     public long avgLowerSales(long[] sales) {
         long sum = 0;
         long cnt = 0;
-        for (long num : sales) {
-            sum = sum + num;
-        }
-        long avgSum= sum / sales.length;
-        for (int i=0 ; i<sales.length;i++) {
+        sum = sumSales(sales);
+        long avgSum = sum / sales.length;
+        for (int i = 0; i < sales.length; i++) {
             if (avgSum < sales[i]) {
-                cnt = cnt +1;
+                cnt = cnt + 1;
             }
         }
         return cnt;
     }
+
     public long avgHigherSales(long[] sales) {
         long sum = 0;
         long cnt = 0;
-        for (long num : sales) {
-            sum = sum + num;
-        }
-        long avgSum= sum / sales.length;
-        for (int i=0 ; i<sales.length;i++) {
-            if (avgSum >sales[i]) {
-                cnt = cnt +1;
+        sum = sumSales(sales);
+        long avgSum = sum / sales.length;
+        for (int i = 0; i < sales.length; i++) {
+            if (avgSum > sales[i]) {
+                cnt = cnt + 1;
             }
         }
         return cnt;
